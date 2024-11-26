@@ -9,7 +9,7 @@ jobs:
   strategy:
    matrix:
     version: [11, 8]
- runs-on: ubuntu-latest
+  runs-on: ubuntu-latest
   steps:
    - uses: actions/checkout@v3
    - name: Set up JDK "${{ matrix.version }}"
