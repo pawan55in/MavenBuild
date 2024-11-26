@@ -13,15 +13,15 @@ runs-on: ubuntu-latest
 steps:
 - uses: actions/checkout@v3
 - name: Set up JDK "${{ matrix.version }}"
-uses: actions/setup-java@v3
-with:
-java-version: "${{ matrix.version }}"
-distribution: 'temurin'
-cache: maven
+  uses: actions/setup-java@v3
+  with:
+   java-version: "${{ matrix.version }}"
+   distribution: 'temurin'
+   cache: maven
 - name: Cache Maven Dependencies
-uses: actions/cache@v3
-with:
-path: ~/.m2
-key: ${{ runner.os }}-cache
+  uses: actions/cache@v3
+  with:
+   path: ~/.m2
+   key: ${{ runner.os }}-cache
 - name: Build with Maven
-run: mvn -B package --file pom.xml
+  run: mvn -B package --file pom.xml
